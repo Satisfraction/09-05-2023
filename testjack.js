@@ -73,4 +73,65 @@ function game() {
   } else {
     ergebnisEl2.innerHTML += "Unentschieden!"
   }
+// Beim Laden der Seite das Array aus dem localStorage laden
+let ergebnisse = JSON.parse(localStorage.getItem('ergebnisse')) || [];
+// Set variable in local storage
+// localStorage.setItem('ergebnisse', 'variableValue');
+
+// // Get variable from local storage
+// var variableValue = localStorage.getItem('ergebnisse');
+// ...
+
+// Am Ende des Spiels das Ergebnis ins Array eintragen und im localStorage speichern
+ergebnisse = ergebnisse.reverse().splice(0, 20);
+ergebnisse.push({
+  hand1: hand1,
+  hand2: hand2,
+  hand1Sum: hand1Sum,
+  hand2Sum: hand2Sum,
+  gewinner: (hand2Sum > hand1Sum) ? 'Du' : (hand1Sum > hand2Sum) ? 'Computer' : 'Unentschieden'
+});
+
+
+localStorage.setItem('ergebnisse', JSON.stringify(ergebnisse));
+
+// ...
+
+// Beim Laden der Seite die Ergebnisse aus dem Array laden und anzeigen
+const ergebnisseEl = document.getElementById("ergebnisse");
+if (ergebnisse.length > 0) {
+  ergebnisseEl.innerHTML = "<h2>Letzte Spiele:</h2>";
+  for (let i = 0; i < ergebnisse.length; i++) {
+    const spiel = ergebnisse[i];
+    ergebnisseEl.innerHTML += "Spiel " + (i + 1) + ": " + spiel.hand2 + " gegen " + spiel.hand1 + ". Ergebnis: " + spiel.hand2Sum + " - " + spiel.hand1Sum + ". Gewinner: " + spiel.gewinner + "<br>";
+  }
 }
+
+}
+function reset() {
+  // Reset the deck array
+  deck = [];
+  for (let i = 0; i < farben.length; i++) {
+      for (let j = 0; j < karte.length; j++) {
+          const wert = karte[j];
+          const mappedWert = werteMapping[wert] || wert;
+          deck.push(farben[i] + ' ' + mappedWert);
+      }
+  }
+
+  // Reset the hands
+  hand1 = [];
+  hand2 = [];
+
+  // Remove the highScores data from local storage
+  localStorage.removeItem('ergebnisse');
+
+  // Clear the high score list
+  const highScoreList = document.getElementById('ergebnisse');
+  highScoreList.innerHTML = '';
+}
+
+const resetBtn = document.createElement('button');
+resetBtn.textContent = 'Zurücksetzen';
+resetBtn.addEventListener('click', reset);
+document.body.appendChild(resetBtn);

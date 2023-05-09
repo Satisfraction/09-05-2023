@@ -20,36 +20,34 @@
 
     }
     .ergebnis{
-            display: flex;
-            flex-wrap: wrap;
+            display: block;
             flex-direction: column;
+            margin-top: 100px;
                 color: #140303;  
                 font-size: 30px;
                 line-height: 0.9;
                 justify-content: center;
     }
     .game{
+            display: block;
             margin: 110px;
             display: flex;
             justify-content: center;
 
     }
     .spiele{
-        display: block;
+        display: flex;
+        margin-left: 60px;
     }
 </style>
 </head>
 <body class="game">
 <td>    
-<!-- <button class='button' onclick="play()">Spielen</button><br><br> -->
 <button class='button' onclick="game()">Spielen</button><br><br>
 
-<!-- <div class="ergebnis" id="ergebnis"></div> -->
 <div class="ergebnis" id="ergebnis2"></div>
-<div class="spiele" id ="history">Ergebnisse</div>
-
 </td>
-<!-- <script src = "blackjack.js"></script> -->
 <script src = testjack.js></script>
+<h2 class ="spiele" id = "ergebnisse"></h2>
 </body>
 </html>
