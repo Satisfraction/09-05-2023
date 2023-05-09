@@ -7,47 +7,63 @@
     <title>Black Jack</title>
     
     <style>
+
+
+
+
+    .align{
+        margin-top:5%;
+        margin-left: 150px;
+    }
     .button {
-        /* background-image: url('rock.webp');
-        background-size: contain;
-        background-repeat: no-repeat; */
-        /* padding: 50px 60px; */
         width: 160px;
         height: 40px;
-        background-color: rgb(232, 151, 151);
+        background-color: rgb(107, 242, 164);
         text-align: center;
         border-radius: 10px;
 
     }
+    .buttonposition{
+        align-items: center;
+        position: fixed;
+    }
     .ergebnis{
             display: block;
-            flex-direction: column;
-            margin-top: 100px;
-                color: #140303;  
+            flex-direction: left;
+            margin-top: 110px;
+                color: #f7f3f3;  
                 font-size: 30px;
                 line-height: 0.9;
                 justify-content: center;
     }
     .game{
-            display: block;
+        background-image: url("bj5.jpg");
+        background-size: 25%;   
+        display: block;
             margin: 110px;
             display: flex;
             justify-content: center;
+            color: aliceblue;
 
     }
     .spiele{
-        display: flex;
-        margin-left: 60px;
+        display: right;
+        margin-right: 60px;
+        padding: 20px;
     }
 </style>
 </head>
 <body class="game">
 <td>    
+<div class="buttonposition">
 <button class='button' onclick="game()">Spielen</button><br><br>
-
+<button class='button' onclick="reset()">zurücksetzen</button><br><br>
+</div>
 <div class="ergebnis" id="ergebnis2"></div>
 </td>
 <script src = testjack.js></script>
+<div class = "align">
 <h2 class ="spiele" id = "ergebnisse"></h2>
+</div>
 </body>
 </html>
