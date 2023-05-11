@@ -5,7 +5,7 @@ const werteMapping = {
   'Ass': 11
 };
 
-var karte = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Bube', 'Dame', 'König', 'Ass'];
+const karte = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Bube', 'Dame', 'König', 'Ass'];
 const farben = ['♥', '♦', '♣', '♠'];
 let deck = [];
 
